@@ -11,7 +11,7 @@
     <title>Friendships</title>
 </head>
 <body>
-    <div class="d-flex justify-content-around flex-wrap">
+    <div class="col-6 d-flex justify-content-around flex-wrap">
         <h2 class="text-center">Friendships</h2>
         <table class="table table-info">
             <thead>
@@ -31,33 +31,33 @@
         </table>
         <form action="/friendships" method="POST" class="col-3">
             <h2 class="text-info">Add User</h2>
-            <input type="hidden" name="user_id" value="{{user.id}}">
+            <input type="hidden" name="user_id" value="">
             <div class="form-group">
                 <div>
-                    <label class="author_label" for="first_name">Frist Name:</label>
-                    <select name="first_name" class="form-control">
+                    <label for="first_name">Frist Name:</label>
+                    <input type="text" name="first_name">
                 </div>
                 <div>
-                    <label class="author_label" for="last_name">Last Name:</label>
-                    <select name="last_name" class="form-control">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
                 </div>
             </div>
             <input type="submit" value="Add User" class="btn btn-primary mt-3">
         </form>
         <form action="/friendships" method="POST" class="col-3">
             <h2 class="text-info">Create Friendship</h2>
-            <input type="hidden" name="user_id" value="{{user.id}}">
+            <input type="hidden" name="user_id" value="">
             <div class="form-group">
                 <label for="user_id">User:</label>
                 <select name="user_id" class="form-control">
                     <!-- jinja loop -->
-                    <option value="{{user.id}}">jinja</option>
+                    <option value="">jinja</option>
                     <!-- jinja loop -->
                 </select>
                 <label for="friend_id">Friend:</label>
                 <select name="friend_id" class="form-control">
                     <!-- jinja loop -->
-                    <option value="{{friend.id}}">jinja</option>
+                    <option value="">jinja</option>
                     <!-- jinja loop -->
                 </select>
             </div>
