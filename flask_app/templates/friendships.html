@@ -52,8 +52,8 @@
                     <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
                     {% endfor %}
                 </select>
-                <label for="user_id">Friend:</label>
-                <select name="user_id" class="form-control">
+                <label for="friend_id">Friend:</label>
+                <select name="friend_id" class="form-control">
                     {% for user in all_users %}
                     <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
                     {% endfor %}

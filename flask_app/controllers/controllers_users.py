@@ -17,10 +17,3 @@ def create_user():
     models_user.User.save(request.form)
     return redirect('/')
 
-# Route for creating a friendship
-@app.route('/make/friends', methods=['POST'])
-def create_friendship():
-    print("Making friends...")
-    # The make_friends method needs to be created in the User class
-    models_user.User.make_friends(request.form)
-    return redirect('/')
