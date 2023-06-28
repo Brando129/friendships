@@ -43,7 +43,7 @@
             </div>
             <input type="submit" value="Add User" class="btn btn-primary mt-3">
         </form>
-        <form action="/users" method="POST" class="col-3">
+        <form action="/make/friends" method="POST" class="col-3">
             <h2 class="text-info">Create Friendship</h2>
             <div class="form-group">
                 <label for="user_id">User:</label>
@@ -55,7 +55,7 @@
                 <label for="user_id">Friend:</label>
                 <select name="user_id" class="form-control">
                     {% for user in all_users %}
-                    <option value="{{user.id}}">h2{{user.first_name}} {{user.last_name}}</option>
+                    <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
                     {% endfor %}
                 </select>
             </div>
