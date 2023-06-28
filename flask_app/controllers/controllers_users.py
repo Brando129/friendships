@@ -7,9 +7,10 @@ from flask_app.models import models_user
 def index():
     return render_template('friendships.html')
 
+# Post Routes
 # Route for creating a new user
 @app.route('/friendships', methods=['POST'])
 def create_user():
-    print("Creating User")
+    print("Creating User...")
     models_user.User.save(request.form)
     return redirect('/')

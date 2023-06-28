@@ -21,17 +21,16 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Jinja for loop -->
+                <!-- jinja loop -->
                 <tr>
-                    <td>jinja syntax</td>
-                    <td>jinja syntax</td>
+                    <td>jinja</td>
+                    <td>jinja</td>
                 </tr>
-                <!-- Jinja for loop -->
+                <!-- jinja loop -->
             </tbody>
         </table>
         <form action="/friendships" method="POST" class="col-3">
             <h2 class="text-info">Add User</h2>
-            <input type="hidden" name="user_id" value="">
             <div class="form-group">
                 <div>
                     <label for="first_name">Frist Name:</label>
@@ -44,21 +43,21 @@
             </div>
             <input type="submit" value="Add User" class="btn btn-primary mt-3">
         </form>
-        <form action="/friendships" method="POST" class="col-3">
+        <form action="/create/friendship" method="POST" class="col-3">
             <h2 class="text-info">Create Friendship</h2>
-            <input type="hidden" name="user_id" value="">
+            <input type="hidden" name="user_id" value="{{user.id}}">
             <div class="form-group">
                 <label for="user_id">User:</label>
                 <select name="user_id" class="form-control">
-                    <!-- jinja loop -->
-                    <option value="">jinja</option>
-                    <!-- jinja loop -->
+                    {% for user in users %}
+                    <option value="{{user.id}}">{{user.first_name}}{{user.last_name}}</option>
+                    {% endfor %}
                 </select>
-                <label for="friend_id">Friend:</label>
-                <select name="friend_id" class="form-control">
-                    <!-- jinja loop -->
-                    <option value="">jinja</option>
-                    <!-- jinja loop -->
+                <label for="user_id">Friend:</label>
+                <select name="user_id" class="form-control">
+                    {% for user in users %}
+                    <option value="{{user.id}}">{{user.first_name}}{{user.last_name}}</option>
+                    {% endfor %}
                 </select>
             </div>
             <input type="submit" value="Create" class="btn btn-primary mt-3">
