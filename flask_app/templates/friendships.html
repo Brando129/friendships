@@ -32,7 +32,7 @@
         <form action="/friendships" method="POST" class="col-3">
             <h2 class="text-info">Add User</h2>
             <div class="form-group">
-                <div>
+                <div class="first_name_input">
                     <label for="first_name">Frist Name:</label>
                     <input type="text" name="first_name">
                 </div>
@@ -45,18 +45,17 @@
         </form>
         <form action="/users" method="POST" class="col-3">
             <h2 class="text-info">Create Friendship</h2>
-            <input type="hidden" name="user_id" value="{{user.id}}">
             <div class="form-group">
                 <label for="user_id">User:</label>
                 <select name="user_id" class="form-control">
                     {% for user in all_users %}
-                    <option value="{{user.id}}">{{user.first_name}}{{user.last_name}}</option>
+                    <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
                     {% endfor %}
                 </select>
                 <label for="user_id">Friend:</label>
                 <select name="user_id" class="form-control">
                     {% for user in all_users %}
-                    <option value="{{user.id}}">{{user.first_name}}{{user.last_name}}</option>
+                    <option value="{{user.id}}">h2{{user.first_name}} {{user.last_name}}</option>
                     {% endfor %}
                 </select>
             </div>

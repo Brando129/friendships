@@ -5,7 +5,8 @@ from flask_app.models import models_user
 # Route for redirecting to "Index Page"
 @app.route('/')
 def index():
-    return render_template('friendships.html')
+    users = models_user.User.get_all_users()
+    return render_template('friendships.html', all_users=users)
 
 
 # Post Routes

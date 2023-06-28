@@ -1,0 +1,9 @@
+/* CSS Reset */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.first_name_input {
+    margin-bottom: 10px;
+}
