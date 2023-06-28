@@ -11,7 +11,7 @@
     <title>Friendships</title>
 </head>
 <body>
-    <div class="col-6 d-flex justify-content-around flex-wrap">
+    <div class="d-flex justify-content-around flex-wrap">
         <h2 class="text-center">Friendships</h2>
         <table class="table table-info">
             <thead>
@@ -43,19 +43,19 @@
             </div>
             <input type="submit" value="Add User" class="btn btn-primary mt-3">
         </form>
-        <form action="/create/friendship" method="POST" class="col-3">
+        <form action="/users" method="POST" class="col-3">
             <h2 class="text-info">Create Friendship</h2>
             <input type="hidden" name="user_id" value="{{user.id}}">
             <div class="form-group">
                 <label for="user_id">User:</label>
                 <select name="user_id" class="form-control">
-                    {% for user in users %}
+                    {% for user in all_users %}
                     <option value="{{user.id}}">{{user.first_name}}{{user.last_name}}</option>
                     {% endfor %}
                 </select>
                 <label for="user_id">Friend:</label>
                 <select name="user_id" class="form-control">
-                    {% for user in users %}
+                    {% for user in all_users %}
                     <option value="{{user.id}}">{{user.first_name}}{{user.last_name}}</option>
                     {% endfor %}
                 </select>
