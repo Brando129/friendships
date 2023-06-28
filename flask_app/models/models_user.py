@@ -12,6 +12,9 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
     # Classmethod for saving a new user
     @classmethod
     def save(cls, data):
@@ -33,9 +36,3 @@ class User:
             users_list.append(cls(user))
         return users_list
 
-    # Classmethod for making friends with two users
-    @classmethod
-    def make_friends(cls, data):
-        query = """SELECT * FROM users LEFT JOIN friendships on users.id = friendships.user_id
-                WHERE users.id = %(id)s"""
-        results = connectToMySQL(db).query_db(query, data)
