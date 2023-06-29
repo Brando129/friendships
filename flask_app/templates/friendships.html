@@ -21,12 +21,12 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- jinja loop -->
+                {% for friends in all_friends %}
                 <tr>
                     <td>jinja</td>
                     <td>jinja</td>
                 </tr>
-                <!-- jinja loop -->
+                {% endfor %}
             </tbody>
         </table>
         <form action="/friendships" method="POST" class="col-3">
