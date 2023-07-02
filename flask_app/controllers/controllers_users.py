@@ -16,4 +16,3 @@ def create_user():
     print("Creating User...")
     models_user.User.save(request.form)
     return redirect('/')
-

@@ -11,6 +11,7 @@ class Friendship:
         self.friend_id = data['friend_id']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.friendships = []
 
     # Classmethod for saving a friendship
     @classmethod
