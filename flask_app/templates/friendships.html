@@ -10,44 +10,13 @@
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <title>Friendships</title>
 </head>
-<body>
+<body class="bg-light">
     <div class="container col-md-12">
-        <div class="d-flex justify-content-around mt-3">
-            <form action="/friendships" method="POST" class="col-md-3 p-4 bg-dark text-light">
-                <h2 class="text-info">Add User</h2>
-                <div class="form-group mb-4">
-                    <label for="first_name">Frist Name:</label>
-                    <input type="text" name="first_name">
-                </div>
-                <div class="form-group mb-2">
-                    <label for="last_name">Last Name:</label>
-                    <input type="text" name="last_name">
-                </div>
-            <input type="submit" value="Add User" class="btn btn-primary mt-3">
-            </form>
-            <form action="/make/friends" method="POST" class="col-md-3 p-4 bg-dark text-light">
-                <h2 class="text-info">Create Friendship</h2>
-                <div class="form-group">
-                    <label for="user_id">User:</label>
-                    <select name="user_id" placeholder="" class="form-control mb-2">
-                        {% for user in all_users %}
-                        <option>Choose User</option>
-                        <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
-                        {% endfor %}
-                    </select>
-                    <label for="friend_id">Friend:</label>
-                    <select name="friend_id" class="form-control mb-2">
-                        {% for user in all_users %}
-                        <option>Choose Friend</option>
-                        <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <input type="submit" value="Create" class="btn btn-primary mt-3">
-            </form>
+        <h1 class="text-center">Friendships</h1>
+        <div class="d-flex justify-content-around mt-4">
             <div class="col-md-3">
-                <h2 class="text-center">Friendships</h2>
-                <table class="table table-info">
+                <h2 class="text-center bg-dark text-warning">Friends</h2>
+                <table class="table table-dark table-striped table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>User</th>
@@ -57,12 +26,44 @@
                     <tbody>
                         {% for friends in all_friends %}
                         <tr>
-                            <td>jinja</td>
-                            <td>jinja</td>
+                            <td>{{friends.user_id}}</td>
+                            <td>{{friends.friend_id}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+            </div>
+            <div class="d-flex flex-column">
+                <form action="/friendships" method="POST" class="p-4 bg-dark text-light mb-4">
+                    <h2 class="text-info text-warning">Add User</h2>
+                    <div class="form-group mb-4">
+                        <label for="first_name">Frist Name:</label>
+                        <input type="text" placeholder="First name..." name="first_name">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" placeholder="Last name..." name="last_name">
+                    </div>
+                <input type="submit" value="Add User" class="btn btn-primary mt-3">
+                </form>
+                <form action="/make/friends" method="POST" class="p-4 bg-dark text-light">
+                    <h2 class="text-info text-warning">Create Friendship</h2>
+                    <div class="form-group">
+                        <label for="user_id">User:</label>
+                        <select name="user_id" placeholder="" class="form-control mb-2">
+                            {% for user in all_users %}
+                            <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="friend_id">Friend:</label>
+                        <select name="friend_id" class="form-control mb-2">
+                            {% for user in all_users %}
+                            <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <input type="submit" value="Create" class="btn btn-primary mt-3">
+                </form>
             </div>
         </div>
     </div>

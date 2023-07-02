@@ -33,3 +33,23 @@ class Friendship:
         for friend in results:
             friends_list.append(cls(friend))
         return friends_list
+
+    # classmethod that gets a friendship
+    # @classmethod
+    # def get_by_id(cls, data):
+    #     query = """SELECT * FROM users LEFT JOIN friendships ON users.id = friendships.user_id
+    #             WHERE users.id = %(id)s;"""
+    #     results = connectToMySQL(db).query_db(query, data)
+    #     # Makes friendship into its own instance of the class
+    #     friendship = cls(results[0])
+    #     # Goes through all the results and gets the data
+    #     for row in results:
+    #         if row['users.id'] == None:
+    #             break
+    #         data = {
+    #             "id": row['users.id'],
+    #             "first_name": row['first_name'],
+    #             "lasst_name": row['last_name']
+    #         }
+    #         friendship.friendships.append(Friendship(data))
+    #     return friendship
